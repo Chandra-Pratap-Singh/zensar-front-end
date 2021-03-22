@@ -64,6 +64,7 @@ const UserList = () => {
         <h5 className="text-danger">{error}</h5>
       ) : (
         <section className="d-flex flex-wrap">
+          {!userList?.length && <h5>No Users found!</h5>}
           {userList?.map((user) => (
             <div key={user.id} className="m-2">
               <UserCard user={user} />

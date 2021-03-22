@@ -35,13 +35,13 @@ const AddOrEditUser = () => {
 
   const updateImage = useCallback(
     (event) => {
-      const file = event.target.files[0];
+      const file = event.target?.files?.[0];
       const fileReader = new FileReader();
       fileReader.onloadend = () => {
-        setUser({ ...user, img: fileReader.result.toString() });
+        setUser({ ...user, img: fileReader?.result?.toString() });
       };
       fileReader.readAsDataURL(file);
-      setUser({ ...user, img: fileReader.result.toString() });
+      // setUser({ ...user, img: fileReader.result.toString() });
     },
     [setUser, user]
   );
